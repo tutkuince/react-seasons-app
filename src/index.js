@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 class App extends React.Component {
     render() {
+        // Getting the current position
         window.navigator.geolocation.getCurrentPosition(
             position => console.log(position),
             positionError => console.log(positionError)
