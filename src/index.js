@@ -8,7 +8,8 @@ class App extends React.Component {
 
         // This is the only time we do direct assignment to this.state
         this.state = {
-            lat: null
+            lat: null,
+            errorMessage: ''
         };
 
         // Getting the current position
@@ -16,14 +17,20 @@ class App extends React.Component {
             position => {
                 this.setState({lat: position.coords.latitude});
             },
-            positionError => console.log(positionError)
+            err => {
+                this.setState({errorMessage: err.message});
+            }
         );
     }
 
     // React says we have to define render.
     render() {
         return (
-            <h2>Latitude: {this.state.lat}</h2>
+            <div>
+                Latitude: {this.state.lat}
+                <br/>
+                Error: {this.state.errorMessage}
+            </div>
         );
     }
 }
