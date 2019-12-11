@@ -11,15 +11,14 @@ class App extends React.Component {
             lat: null,
             errorMessage: ''
         };
+    }
 
+    // after all the elements of the page is rendered correctly, this method is called
+    componentDidMount() {
         // Getting the current position
         window.navigator.geolocation.getCurrentPosition(
-            position => {
-                this.setState({lat: position.coords.latitude});
-            },
-            err => {
-                this.setState({errorMessage: err.message});
-            }
+            position => this.setState({lat: position.coords.latitude}),
+            err => this.setState({errorMessage: err.message})
         );
     }
 
