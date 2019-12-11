@@ -2,16 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-    // State must be initialized when a component is created. (constructor)
-    constructor(props) {
-        super(props);
-
-        // This is the only time we do direct assignment to this.state
-        this.state = {
-            lat: null,
-            errorMessage: ''
-        };
-    }
+    // This is the only time we do direct assignment to this.state
+    state = { lat: null, errorMessage: '' };
 
     // after all the elements of the page is rendered correctly, this method is called
     componentDidMount() {
