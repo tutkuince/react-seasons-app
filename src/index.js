@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
+import ErrorDisplay from "./ErrorDisplay";
 
 class App extends React.Component {
     // This is the only time we do direct assignment to this.state
@@ -18,7 +19,7 @@ class App extends React.Component {
 
     renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
-            return <div>Error: {this.state.errorMessage}</div>;
+            return <ErrorDisplay message={this.state.errorMessage}/>
         }
 
         if (!this.state.errorMessage && this.state.lat) {
